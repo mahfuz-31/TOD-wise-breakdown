@@ -53,6 +53,7 @@ buyer['Buyers'] = [
     'VOGUE SOURCING LIMITED',
     'INDISKA',
     'ITX KIDS',
+    'BIOWORLD International Ltd',
     'BONITA GMBS & CO. KG',
     'ESPRIT MACAO COMMERCIAL OFFSHORE LTD.',
     'G-STAR RAW CV',
@@ -65,8 +66,7 @@ buyer['Buyers'] = [
     'Ralph Lauren Corporation',
     'TOM TAILOR SOURCING LTD.',
     'CAMEL ACTIVE / BHB-Fashion Service Gmbh',
-    'ITX LADIES',
-    'BIOWORLD International Ltd'
+    'ITX LADIES'
 ]
 
 for i in range(1, 11):
