@@ -26,19 +26,20 @@ factories = [
     'JKL',
     'MFL',
     'FFL2',
-    'JKL2'
+    'JKL2',
+    'GTAL'
 ]
 unit = pd.DataFrame()
 unit['Factory'] = factories
 for i in range(1, 11):
-    file = 'D:/1. Work/3. Half Monthly/TOD wise breakdown/Unit/' + str(i) + '.csv'
+    file = 'Unit/' + str(i) + '.csv'
     df = pd.read_csv(file)
     unit[date_ranges[i - 1]] = None
     for index, row in df.iterrows():
         factory = row['Pl. Board']
         for index1, row1 in unit.iterrows():
             if factory == row1['Factory']:
-                unit.loc[index1, date_ranges[i - 1]] = row[str(plan_end) + '-' + plan_month + "-25"]
+                unit.loc[index1, date_ranges[i - 1]] = row[str(plan_end) + '-' + plan_month + "-26"]
 
 buyer = pd.DataFrame()
 buyer['Buyers'] = [
@@ -53,31 +54,36 @@ buyer['Buyers'] = [
     'VOGUE SOURCING LIMITED',
     'INDISKA',
     'ITX KIDS',
-    'BIOWORLD International Ltd',
+    'BIOWORLD INTERNATIONAL GMBH',
     'BONITA GMBS & CO. KG',
+    'CAMEL ACTIVE / BHB-Fashion Service Gmbh',
+    'CECIL GmbH',
     'ESPRIT MACAO COMMERCIAL OFFSHORE LTD.',
     'G-STAR RAW CV',
     'GUESS EUROPE SAGL',
     'HUGO BOSS AG',
+    'ITX LADIES',
     'MQ MARQET AB',
+    'MARC O POLO',
     'NEW FRONTIER',
     'NEXT SOURCING LTD.',
     'PUMA',
     'Ralph Lauren Corporation',
+    'Sorbino Uomo S.P.A.',
     'TOM TAILOR SOURCING LTD.',
-    'CAMEL ACTIVE / BHB-Fashion Service Gmbh',
-    'ITX LADIES'
+    'DBL CERAMICS LTD.',
+    'ECOTEX',
 ]
 
 for i in range(1, 11):
-    file = 'D:/1. Work/3. Half Monthly/TOD wise breakdown/Buyer/' + str(i) + '.csv'
+    file = 'Buyer/' + str(i) + '.csv'
     df = pd.read_csv(file)
     buyer[date_ranges[i - 1]] = None
     for index, row in df.iterrows():
         b = row['Buyer']
         for index1, row1 in buyer.iterrows():
             if b == row1['Buyers']:
-                buyer.loc[index1, date_ranges[i - 1]] = row[str(plan_end) + '-' + plan_month + "-25"]
-with pd.ExcelWriter('D:/1. Work/3. Half Monthly/TOD wise breakdown/output.xlsx') as writer:
+                buyer.loc[index1, date_ranges[i - 1]] = row[str(plan_end) + '-' + plan_month + "-26"]
+with pd.ExcelWriter('output.xlsx') as writer:
     unit.to_excel(writer, sheet_name='Unit-Wise', index=False)
     buyer.to_excel(writer, sheet_name='Buyer-Wise', index=False)
